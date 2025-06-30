@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Painel da Biblioteca{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Biblioteca</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="{{ url_for('livros.index_admin') }}" class="{{ 'active' if 'livros' in request.endpoint else '' }}">Livros</a></li>
+                    <li><a href="{{ url_for('livros.criar') }}" class="{{ 'active' if 'criar' in request.endpoint else '' }}">Adicionar Livro</a></li>
+                    <li><a href="{{ url_for('emprestimos.ver_emprestimos') }}" class="{{ 'active' if 'emprestimos' in request.endpoint else '' }}">Empréstimos</a></li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <a href="{{ url_for('admin.logout_admin') }}">Sair</a>
+            </footer>
+        </aside>
+
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

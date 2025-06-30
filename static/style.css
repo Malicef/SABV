@@ -1,0 +1,408 @@
+/* static/style.css */
+
+/* --- Configurações Globais e Layout da Página --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa; /* Um cinza bem claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+/* --- Container do Formulário de Login --- */
+.login-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* --- Título (h2) --- */
+.login-container h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #212529;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Agrupamento de Label e Input --- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+/* --- Inputs de Texto e Senha --- */
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #4C51BF; /* Um tom de índigo */
+    box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.2);
+}
+
+/* --- Botão de Submit --- */
+.btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    transform: scale(0.99);
+}
+
+/* Cores específicas para cada botão */
+.btn-admin {
+    background-color: #3B82F6; /* Azul */
+}
+
+.btn-usuario {
+    background-color: #4C51BF; /* Índigo */
+}
+
+/* --- Mensagens Flash (Alertas) --- */
+.flash-message {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+/* static/style.css - VERSÃO DASHBOARD */
+
+/* --- Configurações Globais --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Estrutura Principal do Dashboard --- */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    width: 240px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar-header h2 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    color: #ecf0f1;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s;
+}
+
+.sidebar-nav a:hover {
+    background-color: #34495e;
+}
+
+.sidebar-nav a.active {
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #34495e;
+}
+
+.sidebar-footer a {
+    display: block;
+    text-align: center;
+    padding: 0.8rem;
+    background-color: #e74c3c;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-footer a:hover {
+    background-color: #c0392b;
+}
+
+/* --- Área de Conteúdo Principal --- */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- Seções como na imagem --- */
+.content-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.section-description {
+    color: #6c757d;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* --- Grid de Cards --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.feature-card p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* --- Lista de Livros --- */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+}
+
+.book-cover {
+    height: 160px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.book-info {
+    padding: 1rem;
+}
+
+.book-title {
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: #2c3e50;
+}
+
+.book-author {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.book-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .main-content {
+        padding: 1.5rem;
+    }
+    
+    .features-grid, .book-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid, .book-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Container Principal --- */
+.solicitacoes-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Título da Página --- */
+.solicitacoes-container h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+/* Estilo para a lista de solicitações */
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+ul li form {
+    margin-top: 10px;
+}
+
+.status {
+    font-weight: bold;
+    color: #555;
+}
+
+.status.pendente {
+    color: #e67e22;
+}
+
+.status.aceito {
+    color: #27ae60;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card strong {
+    color: #2c3e50;
+}
+
+.card .acoes {
+    margin-top: 10px;
+}

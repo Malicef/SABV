@@ -1,0 +1,29 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Catálogo de Livros{% endblock %}
+
+{% block content %}
+    <h1 class="page-header">Catálogo de Livros</h1>
+
+    {% if livros %}
+    <div class="book-list">
+        {% for livro in livros %}
+        <div class="book-item">
+            <div class="book-info">
+                <span>{{ livro.titulo }}</span>
+                <span class="author">- {{ livro.autor }}</span>
+            </div>
+            <div class="item-actions">
+                <a href="{{ url_for('livros.visualizar', id=livro.id) }}" class="action-link">Ver</a>
+                <a href="{{ url_for('livros.editar', id=livro.id) }}" class="action-link">Editar</a>
+                <form action="{{ url_for('livros.deletar', id=livro.id) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
+                    <button type="submit" class="btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Nenhum livro encontrado no catálogo. Adicione o primeiro livro no menu ao lado.</p>
+    {% endif %}
+{% endblock %}

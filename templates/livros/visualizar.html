@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ livro.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="page-header">
+            <h2>{{ livro.titulo }}</h2>
+        </div>
+        
+        <div class="book-details">
+            <p><strong>Autor:</strong> {{ livro.autor }}</p>
+            <br>
+            <p><strong>Resumo:</strong></p>
+            <p>{{ livro.resumo }}</p> </div>
+
+        <div class="page-footer">
+             <a href="javascript:history.back()" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>

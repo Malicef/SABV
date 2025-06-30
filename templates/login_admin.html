@@ -1,0 +1,47 @@
+<!-- <h2>Login Bibliotecário</h2>
+<form method="POST">
+    <input type="email" name="email" placeholder="E-mail" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+</form> -->
+
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Bibliotecário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login Bibliotecário</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="********" required>
+            </div>
+
+            <button type="submit" class="btn btn-admin">Entrar</button>
+        </form>
+    </div>
+
+</body>
+</html>

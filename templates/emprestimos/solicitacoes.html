@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitações de Empréstimo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .topo a button {
+            padding: 8px 14px;
+            background-color: #7f8c8d;
+        }
+
+        .topo a button:hover {
+            background-color: #636e72;
+        }
+    </style>
+</head>
+<body>
+    <div class="topo">
+        <a href="{{ url_for('livros.index_admin') }}">
+            <button>Voltar</button>
+        </a>
+        <h2>Solicitações de Empréstimo</h2>
+    </div>
+    
+    {% for e in emprestimos %}
+    <div class="card">
+        <p><strong>{{ e.usuario.nome }}</strong> solicitou <strong>{{ e.livro.nome }}</strong> em {{ e.data_emprestimo }}</p>
+        <p>Status: <span class="status {{ e.status }}">{{ e.status }}</span></p>
+
+        {% if e.status == "pendente" %}
+        <div class="acoes">
+            <form action="{{ url_for('emprestimos.aprovar', id=e.id) }}" method="POST">
+                <button type="submit">Aprovar</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>

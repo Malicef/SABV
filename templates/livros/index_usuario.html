@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros Disponíveis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="page-header">
+            <h2>Livros Disponíveis</h2>
+        </div>
+
+        <ul class="book-list">
+            {% for livro in livros %}
+            <li class="book-item">
+                <div class="book-info">
+                    <span>{{ livro.titulo }}</span>
+                    <span class="author">- {{ livro.autor }}</span>
+                </div>
+                <div class="item-actions">
+                    <a href="{{ url_for('livros.visualizar', id=livro.id) }}" class="action-link">Ver Detalhes</a>
+                    <form action="{{ url_for('emprestimos.solicitar_emprestimo', livro_id=livro.id) }}" method="POST">
+                        <button type="submit" class="btn btn-usuario btn-sm">Solicitar Empréstimo</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="page-footer">
+            <a href="{{ url_for('usuario.logout_usuario') }}" class="btn btn-secondary">Sair</a>
+        </div>
+    </div>
+</body>
+</html>
