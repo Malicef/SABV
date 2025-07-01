@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="main-container">
-        <h2>Criar Novo Livro</h2>
-        <form method="POST">
+        <h2 class="page-title">Criar Novo Livro</h2>
+        <form method="POST" class="book-form">
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Título do Livro" required>
@@ -22,10 +22,10 @@
             
             <div class="form-group">
                 <label for="resumo">Resumo</label>
-                <textarea id="resumo" name="resumo" class="form-control" placeholder="Escreva um breve resumo do livro..."></textarea>
+                <textarea id="resumo" name="resumo" class="form-control" rows="4" placeholder="Escreva um breve resumo do livro..."></textarea>
             </div>
             
-            <div class="item-actions" style="justify-content: flex-start;">
+            <div class="form-actions">
                 <button type="submit" class="btn btn-admin">Salvar Livro</button>
                 <a href="{{ url_for('livros.index_admin') }}" class="btn btn-secondary">Cancelar</a>
             </div>
