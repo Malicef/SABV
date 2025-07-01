@@ -13,11 +13,22 @@ def inicializar_db(database):
     database.connect()
     database.create_tables([ADM, Livro, Emprestimo, Usuario])
 
+    
+        
+def criar_tabelas_teste():
     if not ADM.get_or_none(ADM.email == "admin@teste.com"):
         ADM.create(email="admin@teste.com", senha="1234")
-
     if not Usuario.get_or_none(Usuario.email == "usuario@teste.com"):
         Usuario.create(nome="Usuário Teste", email="usuario@teste.com", senha="1234")
+    if not Livro.get_or_none(Livro.titulo == "Livro de Teste"):
+        Livro.create(titulo="Livro de Teste", autor="Autor Teste", resumo="Resumo do Livro de Teste")
+    if not Emprestimo.get_or_none(Emprestimo.livro == Livro.get(Livro.titulo == "Livro de Teste")):
+        Emprestimo.create(livro=Livro.get(Livro.titulo == "Livro de Teste"),
+                          usuario=Usuario.get(Usuario.email == "usuario@teste.com"),
+                            data_emprestimo="2023-10-01",
+                            data_devolucao=None,
+                            status="pendente")
+    
 
 
 def configura_rotas(app):
@@ -28,4 +39,5 @@ def configura_rotas(app):
 
 def configure_all(app):
     inicializar_db(database=database)
+    criar_tabelas_teste()
     configura_rotas(app)

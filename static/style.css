@@ -11,6 +11,12 @@ body {
 
 
 /* --- Container do Formulário de Login --- */
+body.body-login {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;   /* Centraliza verticalmente */
+    min-height: 100vh;     /* Garante que o body ocupe a altura total da tela */
+}
 .login-container {
     background-color: #ffffff;
     padding: 2.5rem;
