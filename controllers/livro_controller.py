@@ -38,8 +38,8 @@ def deletar(id):
         return redirect(url_for("admin.login_admin"))
     livro = Livro.get_or_none(Livro.id == id)
     if livro:
-        livro.delete_instance()
-    return redirect(url_for("livros.index_admin"))
+        # livro.delete_instance()
+        return redirect(url_for("livros.index_admin"))
 
 @livro_bp.route("/admin/livros/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
@@ -68,6 +68,6 @@ def visualizar(id):
 
 @livro_bp.route("/livros")
 def listar_livros():
-    livros = Livro.select()
+    livros = Livro.select() 
     return render_template("livros/listar.html", livros=livros)
 
